@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('bienvenido', function () {
-    return "Hola mundo";
-});
+Route::get('fotos/{numero?}', function ($numero='sin numero') {
+    return "Estas en la galeria de fotos: ".$numero;
+})->where('numero','[0-9]+');
+
+
+Route::view('galeria','fotos',['numero'=>1235]);
